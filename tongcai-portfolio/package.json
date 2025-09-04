@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "deploy": "gh-pages -d dist"
   },
-  "homepage": "https://username.github.io/tongcai",
+  "homepage": "https://tong-cai.com",
   "dependencies": {
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
