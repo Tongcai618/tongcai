@@ -53,6 +53,12 @@ export default function ProjectCard({
 
 // --- Inline Styles using colors ---
 const styles: { [key: string]: CSSProperties } = {
+    grid: {
+        display: "grid",
+        gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+        gap: "24px",
+    },
+
     card: {
         display: "flex",
         flexDirection: "row",
@@ -63,7 +69,9 @@ const styles: { [key: string]: CSSProperties } = {
         backgroundColor: colors.surface,
         boxShadow: "0 4px 12px rgba(0, 0, 0, 0.05)",
         transition: "transform 0.2s ease",
+        maxWidth: "500px",
     },
+
     image: {
         width: "120px",
         height: "120px",

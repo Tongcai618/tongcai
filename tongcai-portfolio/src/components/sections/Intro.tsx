@@ -1,9 +1,10 @@
 import type { CSSProperties } from "react";
 import { colors } from "../../styles/colors";
+import Section from "../ui/Section";
 
 export default function Intro() {
     return (
-        <section id="intro" style={styles.section}>
+        <Section id="intro">
             <div style={styles.container}>
                 <h1 style={styles.name}>Tong Cai</h1>
                 <p style={styles.title}>Full Stack Engineer | Real-World Evidence Analyst</p>
@@ -12,17 +13,12 @@ export default function Intro() {
                     Currently developing fintech & clinical research software with TypeScript, Spring Boot, and Python.
                 </p>
             </div>
-        </section>
+        </Section>
     );
 }
 
 
 const styles: { [key: string]: CSSProperties } = {
-    section: {
-        backgroundColor: colors.bg,
-        padding: "100px 20px 80px",
-        textAlign: "center",
-    },
     container: {
         maxWidth: "800px",
         margin: "0 auto",

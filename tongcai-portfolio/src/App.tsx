@@ -7,17 +7,27 @@ import Intro from './components/sections/Intro'
 import Nav from './components/layout/Nav'
 
 function App() {
-
   return (
     <>
-      <Nav />
-      <Intro />
-      <About />
-      <Skills />
-      <Experience />
-      <Projects />
+      <main style={styles.main}>
+        <Nav />
+        <Intro />
+        <About />
+        <Skills />
+        <Experience />
+        <Projects />
+      </main>
     </>
-  )
+  );
 }
+
+const styles = {
+  main: {
+    maxWidth: "3000px",
+    margin: "0 auto",
+    padding: "0 20px",
+  },
+};
+
 
 export default App

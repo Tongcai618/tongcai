@@ -3,47 +3,59 @@ import { colors } from "../../styles/colors"; // adjust path as needed
 
 interface SectionProps {
     id: string;
-    title: string;
+    title?: string;
     subtitle?: string;
     children: ReactNode;
-  }
-  
-  export default function Section({ id, title, subtitle, children }: SectionProps) {
+    layout?: "column" | "row";
+    gap?: string | number;
+}
+
+export default function Section({ id, title, subtitle, children, layout = "column", gap = '2rem' }: SectionProps) {
     return (
-      <section id={id} style={styles.section}>
-        <div style={styles.container}>
-          <h2 style={styles.title}>{title}</h2>
-          {subtitle && <p style={styles.subtitle}>{subtitle}</p>}
-          <div style={styles.content}>{children}</div>
-        </div>
-      </section>
+        <section id={id} style={styles.section}>
+                <h2 style={styles.title}>{title}</h2>
+                {subtitle && <p style={styles.subtitle}>{subtitle}</p>}
+                <div
+                    style={{
+                        ...styles.content,
+                        flexDirection: layout,
+                        gap,
+                    }}
+                >
+                    {children}
+                </div>
+        </section>
     );
-  }
-  
-  // --- Inline styles using shared colors ---
-  const styles: { [key: string]: CSSProperties } = {
+}
+
+// --- Inline styles using shared colors ---
+const styles: { [key: string]: CSSProperties } = {
     section: {
-      backgroundColor: colors.bg,
-      padding: "60px 20px",
-    },
-    container: {
-      maxWidth: "3000px",
-      margin: "0 auto",
+        backgroundColor: colors.bg,
+        padding: "60px 20px",
+        alignItems: "center",
+        maxWidth: "2000px",
     },
     title: {
-      fontSize: "2rem",
-      fontWeight: 600,
-      textAlign: "center",
-      color: colors.text,
-      margin: 0,
+        fontSize: "3rem",
+        fontWeight: 1200,
+        textAlign: "center",
+        color: colors.text,
+        margin: 0,
     },
     subtitle: {
-      fontSize: "1.125rem",
-      textAlign: "center",
-      color: colors.textSecondary,
-      marginTop: "0.75rem",
+        fontSize: "1.125rem",
+        textAlign: "center",
+        color: colors.textSecondary,
+        marginTop: "0.75rem",
     },
     content: {
-      marginTop: "2.5rem",
-    },
-  };
+        marginTop: "2.5rem",
+        display: "flex",
+        justifyContent: "center", // ⬅️ center items horizontally
+        alignItems: "center",     // ⬅️ center items vertically
+        gap: "2rem",
+        flexWrap: "wrap",         // ⬅️ keep it responsive
+        width: "100%",            // ⬅️ allow centering within container
+      },
+};

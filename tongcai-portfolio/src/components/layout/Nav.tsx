@@ -50,7 +50,7 @@ const styles: { [key: string]: CSSProperties } = {
         zIndex: 999,
     },
     nav: {
-        maxWidth: "1000px",
+        maxWidth: "2000px",
         margin: "0 auto",
         padding: "16px 20px",
         display: "flex",

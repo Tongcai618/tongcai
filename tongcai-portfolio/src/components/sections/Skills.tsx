@@ -11,7 +11,7 @@ const skillCategories = {
 
 export default function Skills() {
     return (
-        <Section id="skills" title="Skills & Technologies" subtitle="Things I use to build and ship software">
+        <Section id="skills" title="Skills & Technologies">
             <div style={styles.skillsGrid}>
                 {Object.entries(skillCategories).map(([category, skills]) => (
                     <div key={category} style={styles.category}>
