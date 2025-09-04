@@ -9,11 +9,12 @@ export default function Projects() {
 
         <ProjectCard
           title="Wordle Game"
-          description="A TypeScript-based clone of Wordle with clean design, leaderboard, and state persistence."
-          techStack={["React", "TypeScript", "Spring Boot", "Redis", "CSS Modules", "AWS", "MongoDB Atlas"]}
+          description="A TypeScript-based Wordle clone with a clean UI, global leaderboard, and persistent game state—backed by a Spring Boot API with JWT-based authentication (login/signup). Deployed on AWS EC2 with ALB."
+          techStack={["React", "TypeScript", "CSS Modules", "Spring Boot", "JWT", "AWS EC2", "Nginx"]}
           link="https://tongcai618.github.io/Wordle-Game-TypeScript/"
           image="../../src/assets/wordle-photo.png"
         />
+
 
         <ProjectCard
           title="Husky Life"
@@ -30,7 +31,7 @@ export default function Projects() {
 
 const styles: { [key: string]: CSSProperties } = {
   projectList: {
-    display: "grid",
+    display: "flex",
     gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
     gap: "24px",
     marginTop: "24px",

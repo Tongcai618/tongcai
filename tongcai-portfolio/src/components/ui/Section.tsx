@@ -33,8 +33,6 @@ const styles: { [key: string]: CSSProperties } = {
     section: {
         backgroundColor: colors.bg,
         padding: "60px 20px",
-        alignItems: "center",
-        maxWidth: "2000px",
     },
     title: {
         fontSize: "3rem",

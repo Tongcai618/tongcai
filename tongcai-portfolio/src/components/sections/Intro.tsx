@@ -7,10 +7,10 @@ export default function Intro() {
         <Section id="intro">
             <div style={styles.container}>
                 <h1 style={styles.name}>Tong Cai</h1>
-                <p style={styles.title}>Full Stack Engineer | Real-World Evidence Analyst</p>
+                <p style={styles.title}>Full Stack Engineer | Cloud Engineer</p>
                 <p style={styles.description}>
-                    Passionate about building scalable systems, analyzing healthcare data, and mentoring teams.
-                    Currently developing fintech & clinical research software with TypeScript, Spring Boot, and Python.
+                    Passionate about building scalable systems, designing new architectures, and mentoring engineering teams.
+                    Currently focused on developing software using TypeScript, Spring Boot, and Python.
                 </p>
             </div>
         </Section>

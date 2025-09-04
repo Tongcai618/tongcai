@@ -8,6 +8,7 @@ const navLinks = [
     { label: "Projects", href: "#projects" },
     { label: "Skills", href: "#skills" },
     { label: "Contact", href: "#contact" },
+    { label: "Resume", href: "/Tong_SDE_Resume.pdf", download: true }
 ];
 
 export default function Nav() {
@@ -17,7 +18,7 @@ export default function Nav() {
         <header style={styles.header}>
             <nav style={styles.nav}>
                 <a href="#intro" style={styles.brand}>
-                    Tong Cai
+                    Tong
                 </a>
                 <button
                     onClick={() => setIsOpen(!isOpen)}
@@ -29,12 +30,20 @@ export default function Nav() {
                 <ul style={{ ...styles.navList, ...(isOpen ? styles.navListOpen : {}) }}>
                     {navLinks.map((link) => (
                         <li key={link.href} style={styles.navItem}>
-                            <a href={link.href} style={styles.navLink}>
+                            <a
+                                href={link.href}
+                                style={{
+                                    ...styles.navLink,
+                                    ...(link.label === "Resume" ? styles.navItem : {}),
+                                }}
+                                {...(link.download ? { download: true, target: "_blank", rel: "noopener noreferrer" } : {})}
+                            >
                                 {link.label}
                             </a>
                         </li>
                     ))}
                 </ul>
+
             </nav>
         </header>
     );
@@ -50,7 +59,6 @@ const styles: { [key: string]: CSSProperties } = {
         zIndex: 999,
     },
     nav: {
-        maxWidth: "2000px",
         margin: "0 auto",
         padding: "16px 20px",
         display: "flex",

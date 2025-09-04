@@ -95,6 +95,7 @@ const styles: { [key: string]: CSSProperties } = {
         fontSize: "0.95rem",
         color: colors.textSecondary,
         marginBottom: "0.5rem",
+        textAlign: "left"
     },
     techStack: {
         display: "flex",
