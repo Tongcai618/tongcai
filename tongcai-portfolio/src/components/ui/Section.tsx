@@ -1,5 +1,6 @@
 import type { ReactNode, CSSProperties } from 'react';
 import { colors } from "../../styles/colors"; // adjust path as needed
+import TypingText from '../animations/TypingText';
 
 interface SectionProps {
     id: string;
@@ -13,17 +14,27 @@ interface SectionProps {
 export default function Section({ id, title, subtitle, children, layout = "column", gap = '2rem' }: SectionProps) {
     return (
         <section id={id} style={styles.section}>
-                <h2 style={styles.title}>{title}</h2>
-                {subtitle && <p style={styles.subtitle}>{subtitle}</p>}
-                <div
-                    style={{
-                        ...styles.content,
-                        flexDirection: layout,
-                        gap,
-                    }}
-                >
-                    {children}
-                </div>
+            {title && (
+                <TypingText
+                    text={title}
+                    as="h2"
+                    speedMs={40}
+                    cursor
+                    startOnVisible
+                    once
+                    style={styles.title}
+                />
+            )}
+            {subtitle && <p style={styles.subtitle}>{subtitle}</p>}
+            <div
+                style={{
+                    ...styles.content,
+                    flexDirection: layout,
+                    gap,
+                }}
+            >
+                {children}
+            </div>
         </section>
     );
 }
@@ -55,5 +66,5 @@ const styles: { [key: string]: CSSProperties } = {
         gap: "2rem",
         flexWrap: "wrap",         // ⬅️ keep it responsive
         width: "100%",            // ⬅️ allow centering within container
-      },
+    },
 };

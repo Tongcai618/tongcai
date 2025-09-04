@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { colors } from "../../styles/colors";
 import type { CSSProperties } from "react";
+import AnimatedBrand from "../animations/AnimatedBrand";
 
 const navLinks = [
     { label: "About", href: "#about" },
@@ -17,9 +18,8 @@ export default function Nav() {
     return (
         <header style={styles.header}>
             <nav style={styles.nav}>
-                <a href="#intro" style={styles.brand}>
-                    Tong
-                </a>
+                <AnimatedBrand href="#intro" />
+
                 <button
                     onClick={() => setIsOpen(!isOpen)}
                     style={styles.menuButton}
@@ -67,8 +67,10 @@ const styles: { [key: string]: CSSProperties } = {
         flexWrap: "wrap",
     },
     brand: {
-        fontSize: "1.25rem",
-        fontWeight: 600,
+        fontFamily: "'Montserrat', sans-serif",
+        fontSize: "2.25rem",
+        fontWeight: 700,
+        letterSpacing: "-0.5px",
         color: colors.text,
         textDecoration: "none",
     },
