@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { colors } from "../../styles/colors";
 import type { CSSProperties } from "react";
 import AnimatedBrand from "../animations/AnimatedBrand";
@@ -9,11 +9,75 @@ const navLinks = [
     { label: "Projects", href: "#projects" },
     { label: "Skills", href: "#skills" },
     { label: "Contact", href: "#contact" },
-    { label: "Resume", href: "/Tong_SDE_Resume.pdf", download: true }
+    { label: "Resume", href: "/Tong_SDE_Resume.pdf", download: true },
 ];
 
 export default function Nav() {
     const [isOpen, setIsOpen] = useState(false);
+    const [active, setActive] = useState<string>("#about");
+
+    const prefersReducedMotion = useMemo(() => {
+        if (typeof window === "undefined" || !window.matchMedia) return false;
+        return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    }, []);
+
+    // Smooth scroll handler with sticky header offset
+    const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+        // Let the browser handle external/non-hash links (e.g., resume)
+        if (!href.startsWith("#")) return;
+
+        e.preventDefault();
+        const id = href.slice(1);
+        const el = document.getElementById(id);
+        if (!el) return;
+
+        // Estimate sticky header height; tweak as needed
+        const header = document.querySelector("header");
+        const headerH = header ? (header as HTMLElement).offsetHeight : 0;
+
+        const top = el.getBoundingClientRect().top + window.pageYOffset - headerH - 6; // small extra offset
+        if (prefersReducedMotion) {
+            window.scrollTo(0, top);
+        } else {
+            window.scrollTo({ top, behavior: "smooth" });
+        }
+        setIsOpen(false);
+    };
+
+    // Scroll spy (highlights active link while scrolling)
+    useEffect(() => {
+        const sections = navLinks
+            .map(l => l.href)
+            .filter(h => h.startsWith("#"))
+            .map(h => document.getElementById(h.slice(1)))
+            .filter(Boolean) as HTMLElement[];
+
+        if (sections.length === 0) return;
+
+        const header = document.querySelector("header");
+        const headerH = header ? (header as HTMLElement).offsetHeight : 0;
+
+        const obs = new IntersectionObserver(
+            entries => {
+                // Pick the most visible in view
+                const visible = entries
+                    .filter(e => e.isIntersecting)
+                    .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+                if (visible?.target?.id) {
+                    setActive("#" + visible.target.id);
+                }
+            },
+            {
+                // Trigger when section top passes under header area
+                root: null,
+                threshold: [0.25, 0.5, 0.75],
+                rootMargin: `-${headerH + 10}px 0px -40% 0px`,
+            }
+        );
+
+        sections.forEach(s => obs.observe(s));
+        return () => obs.disconnect();
+    }, []);
 
     return (
         <header style={styles.header}>
@@ -27,28 +91,41 @@ export default function Nav() {
                 >
                     ☰
                 </button>
-                <ul style={{ ...styles.navList, ...(isOpen ? styles.navListOpen : {}) }}>
-                    {navLinks.map((link) => (
-                        <li key={link.href} style={styles.navItem}>
-                            <a
-                                href={link.href}
-                                style={{
-                                    ...styles.navLink,
-                                    ...(link.label === "Resume" ? styles.navItem : {}),
-                                }}
-                                {...(link.download ? { download: true, target: "_blank", rel: "noopener noreferrer" } : {})}
-                            >
-                                {link.label}
-                            </a>
-                        </li>
-                    ))}
-                </ul>
 
+                <ul style={{ ...styles.navList, ...(isOpen ? styles.navListOpen : {}) }}>
+                    {navLinks.map(link => {
+                        const isActive = link.href.startsWith("#") && active === link.href;
+                        return (
+                            <li key={link.href} style={styles.navItem}>
+                                <a
+                                    href={link.href}
+                                    style={{
+                                        ...styles.navLink,
+                                        ...(isActive ? styles.navLinkActive : {}),
+                                        ...(link.label === "Resume" ? styles.resumeButton : {}),
+                                    }}
+                                    onClick={e => handleNavClick(e, link.href)}
+                                    {...(link.download
+                                        ? { download: true, target: "_blank", rel: "noopener noreferrer" }
+                                        : {})}
+                                >
+                                    {link.label}
+                                    {/* underline bar */}
+                                    <span
+                                        style={{
+                                            ...styles.activeBar,
+                                            transform: isActive ? "scaleX(1)" : "scaleX(0)",
+                                        }}
+                                    />
+                                </a>
+                            </li>
+                        );
+                    })}
+                </ul>
             </nav>
         </header>
     );
 }
-
 
 const styles: { [key: string]: CSSProperties } = {
     header: {
@@ -66,21 +143,13 @@ const styles: { [key: string]: CSSProperties } = {
         justifyContent: "space-between",
         flexWrap: "wrap",
     },
-    brand: {
-        fontFamily: "'Montserrat', sans-serif",
-        fontSize: "2.25rem",
-        fontWeight: 700,
-        letterSpacing: "-0.5px",
-        color: colors.text,
-        textDecoration: "none",
-    },
     menuButton: {
         fontSize: "1.5rem",
         background: "none",
         border: "none",
         color: colors.text,
         cursor: "pointer",
-        display: "none", // will show on small screens (you can override with media queries later)
+        display: "none",
     },
     navList: {
         display: "flex",
@@ -95,9 +164,34 @@ const styles: { [key: string]: CSSProperties } = {
     },
     navItem: {},
     navLink: {
+        position: "relative",
         textDecoration: "none",
         color: colors.textSecondary,
         fontSize: "1rem",
         padding: "8px 0",
+        display: "inline-flex",
+        alignItems: "center",
+    },
+    navLinkActive: {
+        color: colors.text,
+        fontWeight: 600,
+    },
+    activeBar: {
+        position: "absolute",
+        left: 0,
+        bottom: 0,
+        height: 2,
+        width: "100%",
+        backgroundColor: colors.primary,
+        transformOrigin: "left center",
+        transition: "transform 220ms ease",
+    },
+    resumeButton: {
+        backgroundColor: colors.primary,
+        color: "#fff",
+        padding: "6px 12px",
+        borderRadius: "6px",
+        fontWeight: 500,
+        textDecoration: "none",
     },
 };

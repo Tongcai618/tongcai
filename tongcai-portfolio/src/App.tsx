@@ -1,4 +1,5 @@
 import './App.css'
+import Reveal from './components/animations/Reveal'
 import About from './components/sections/About'
 import Experience from './components/sections/Experiences'
 import Projects from './components/sections/Projects'
@@ -12,12 +13,29 @@ function App() {
     <>
       <main style={styles.main}>
         <Nav />
-        <Intro />
-        <About />
-        <Skills />
-        <Experience />
-        <Projects />
-        <Contact />
+        <Reveal kind="fade-up" once={false} delayMs={120}>
+          <Intro />
+        </Reveal >
+
+        <Reveal kind="fade-up" once={false} delayMs={120}>
+          <About />
+        </Reveal >
+
+        <Reveal kind="fade-up" once={false} delayMs={120}>
+          <Skills />
+        </Reveal >
+
+        <Reveal kind="fade-up" once={false} delayMs={120}>
+          <Experience />
+        </Reveal>
+
+        <Reveal kind="fade-up" once={false} delayMs={120}>
+          <Projects />
+        </Reveal>
+
+        <Reveal kind="fade-up" once={false} delayMs={120}>
+          <Contact />
+        </Reveal>
       </main>
     </>
   );
