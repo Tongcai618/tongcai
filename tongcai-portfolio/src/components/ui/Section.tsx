@@ -18,9 +18,8 @@ export default function Section({ id, title, subtitle, children, layout = "colum
                 <TypingText
                     text={title}
                     as="h2"
-                    speedMs={40}
+                    speedMs={100}
                     cursor
-                    startOnVisible
                     once
                     style={styles.title}
                 />
