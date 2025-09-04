@@ -21,7 +21,7 @@ export default function About() {
 
             </Card>
             <PhotoContainer
-                src="/src/assets/Me.png"
+                src="/images/Me.png"
                 alt="Tong Cai"
                 size={400}
                 rounded
