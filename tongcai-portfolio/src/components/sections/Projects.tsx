@@ -10,7 +10,7 @@ export default function Projects() {
         <ProjectCard
           title="Wordle Game"
           description="A TypeScript-based clone of Wordle with clean design, leaderboard, and state persistence."
-          techStack={["React", "TypeScript", "CSS Modules"]}
+          techStack={["React", "TypeScript", "Spring Boot", "Redis", "CSS Modules", "AWS", "MongoDB Atlas"]}
           link="https://tongcai618.github.io/Wordle-Game-TypeScript/"
           image="../../src/assets/wordle-photo.png"
         />
@@ -18,9 +18,9 @@ export default function Projects() {
         <ProjectCard
           title="Husky Life"
           description="A student-focused campus companion app designed to help Northeastern students explore campus facilities and manage their daily schedules. Features include interactive campus maps, class and event scheduling, and personalized daily planning."
-          techStack={["React", "TypeScript", "CSS Modules"]}
+          techStack={["Swift", "Firebase"]}
           link="https://github.com/ZeehanXu/HuskyLife"
-          image="../../src/assets/husky-life-photo.jpg"
+          image="../../src/assets/huskylife-photo.png"
         />
 
       </div>

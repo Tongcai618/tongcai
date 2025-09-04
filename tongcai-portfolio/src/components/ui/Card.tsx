@@ -21,7 +21,7 @@ const styles: { [key: string]: CSSProperties } = {
         border: `1px solid ${colors.border}`,
         borderRadius: "12px",
         padding: "20px",
-        boxShadow: "0 2px 8px rgba(0,0,0,0.04)",
+        boxShadow: "0 4px 12px rgba(0, 0, 0, 0.05)",
         color: colors.text,
         transition: "transform 0.2s ease, box-shadow 0.2s ease",
         maxWidth:"400px"
