@@ -5,9 +5,9 @@ import AnimatedBrand from "../animations/AnimatedBrand";
 
 const navLinks = [
     { label: "About", href: "#about" },
+    { label: "Skills", href: "#skills" },
     { label: "Experience", href: "#experience" },
     { label: "Projects", href: "#projects" },
-    { label: "Skills", href: "#skills" },
     { label: "Contact", href: "#contact" },
     { label: "Resume", href: "/Tong_SDE_Resume.pdf", download: true },
 ];
