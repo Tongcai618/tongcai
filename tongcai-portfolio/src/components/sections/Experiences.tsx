@@ -16,7 +16,7 @@ const experienceItems = [
         "Developed reusable React Native components and shared type definitions, standardizing UI and reducing duplication across features.",
       ],
       href: "https://www.linkedin.com/company/ti-kerapp/",
-      logoSrc: "../../src/assets/ticker-logo.jpeg",
+      logoSrc: "/images/ticker-logo.jpeg",
     },
     {
       role: "Automation Developer",
@@ -29,7 +29,7 @@ const experienceItems = [
         "Automated repetitive workflows, saving ~2 hours per run for the operations team.",
         "Implemented an automated email delivery tool with HTML-based templates, cutting manual dispatch time by ~1 hour per batch.",
       ],
-      logoSrc: "../../src/assets/csci-logo.jpeg",
+      logoSrc: "/images/csci-logo.jpeg",
     },
     {
       role: "Data Engineering Intern",
@@ -41,7 +41,7 @@ const experienceItems = [
         "Automated overseas index data ingestion from Bloomberg using Python, increasing reliability and reducing manual effort.",
         "Hardened the pipeline with validation checks and logging for faster failure detection and recovery.",
       ],
-      logoSrc: "../../src/assets/gf-logo.jpg",
+      logoSrc: "/images/gf-logo.jpg",
     },
   ];
   
