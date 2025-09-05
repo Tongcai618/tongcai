@@ -5,7 +5,7 @@ import ExperienceItem from "../ui/ExperienceItem";
 
 const experienceItems = [
     {
-      role: "Full Stack Engineer",
+      role: "Software Developer",
       company: "Ti¢ker",
       location: "Boston, MA",
       date: "Jan 2025 - Aug 2025",

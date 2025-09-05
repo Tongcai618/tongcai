@@ -2,6 +2,7 @@
 import type { CSSProperties } from "react";
 import { useState, useEffect } from "react";
 import { colors } from "../../styles/colors";
+import { fontFamily } from "../../styles/fonts";
 
 type Phase = "typing" | "pausing" | "deleting";
 
@@ -79,7 +80,7 @@ const styles: { [k: string]: CSSProperties } = {
         display: "inline-flex",
         alignItems: "center",
         gap: "4px",
-        fontFamily: "ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace",
+        fontFamily: fontFamily.code,
         fontSize: "2rem",
         fontWeight: 700,
         color: colors.text,

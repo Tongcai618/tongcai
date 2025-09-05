@@ -1,5 +1,6 @@
 import type { CSSProperties, ReactNode } from "react";
 import { colors } from "../../styles/colors";
+import { fontFamily } from "../../styles/fonts";
 
 export interface ExperienceItemProps {
     role: string;
@@ -100,12 +101,14 @@ const styles: { [k: string]: CSSProperties } = {
     },
     card: {
         paddingLeft: "12px",
+        fontFamily: fontFamily.body
     },
     headerRow: {
         display: "flex",
         alignItems: "flex-start",
         justifyContent: "space-between",
         gap: "12px",
+        fontFamily: fontFamily.heading
     },
     left: {
         minWidth: 0,

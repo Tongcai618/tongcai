@@ -1,5 +1,6 @@
 import type { ReactNode, CSSProperties } from "react";
 import { colors } from "../../styles/colors";
+import { fontFamily } from "../../styles/fonts";
 
 interface ProjectCardProps {
     title: string;
@@ -70,6 +71,7 @@ const styles: { [key: string]: CSSProperties } = {
         boxShadow: "0 4px 12px rgba(0, 0, 0, 0.05)",
         transition: "transform 0.2s ease",
         maxWidth: "500px",
+
     },
 
     image: {
@@ -84,6 +86,7 @@ const styles: { [key: string]: CSSProperties } = {
     },
     title: {
         fontSize: "1.2rem",
+        fontFamily: fontFamily.heading,
         margin: "0 0 0.5rem",
         color: colors.text,
     },
@@ -93,9 +96,10 @@ const styles: { [key: string]: CSSProperties } = {
     },
     description: {
         fontSize: "0.95rem",
+        fontFamily: fontFamily.body,
         color: colors.textSecondary,
         marginBottom: "0.5rem",
-        textAlign: "left"
+        textAlign: "left",
     },
     techStack: {
         display: "flex",

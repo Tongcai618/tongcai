@@ -1,5 +1,6 @@
 import type { ReactNode, CSSProperties } from "react";
 import { colors } from "../../styles/colors";
+import { fontFamily } from "../../styles/fonts";
 
 interface CardProps {
     children: ReactNode;
@@ -24,12 +25,16 @@ const styles: { [key: string]: CSSProperties } = {
         boxShadow: "0 4px 12px rgba(0, 0, 0, 0.05)",
         color: colors.text,
         transition: "transform 0.2s ease, box-shadow 0.2s ease",
-        maxWidth:"400px"
+        maxWidth: "400px",
     },
     body: {
+        fontFamily: fontFamily.body,
         textAlign: "left",
         fontSize: "1rem",
         lineHeight: 1.6,
         color: colors.textSecondary,
+        display: "flex", 
+        flexDirection: "column", 
+        gap: 30
     },
 };

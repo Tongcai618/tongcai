@@ -15,8 +15,12 @@ export default function About() {
                     C#, complemented by a finance background that sharpens my ability to align technology solutions with business needs.
                 </p>
                 <p style={styles.p}>
-                    At Ticker, I led backend and mobile initiatives in a fast-paced startup environment, developing scalable systems and reusable components using Spring Boot,
-                    MongoDB, and React Native. My experience also extends to mobile app development (React Native & Swift), 3D game programming in Unity, and enterprise web applications built with React and Java (MVC architecture).
+                    At Ticker, I led backend and mobile initiatives in a fast-paced startup environment, building
+                    scalable services with Spring Boot and MongoDB and shipping reusable components in React Native.
+                    I containerized services with Docker and deployed them on Kubernetes (managed via Helm), enabling
+                    rolling updates and horizontal scaling. I also introduced Redis for caching and session/state
+                    management to reduce latency, and paired it with message queues (e.g., RabbitMQ) for reliable,
+                    asynchronous workflows across the system.
                 </p>
 
             </Card>
