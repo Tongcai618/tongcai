@@ -1,7 +1,7 @@
 import './App.css'
 import Reveal from './components/animations/Reveal'
 import About from './components/sections/About'
-import Experience from './components/sections/Experiences'
+import Experiences from './components/sections/Experiences'
 import Projects from './components/sections/Projects'
 import Skills from './components/sections/Skills'
 import Intro from './components/sections/Intro'
@@ -26,7 +26,7 @@ function App() {
         </Reveal >
 
         <Reveal kind="fade-up" once={false} delayMs={120}>
-          <Experience />
+          <Experiences />
         </Reveal>
 
         <Reveal kind="fade-up" once={false} delayMs={120}>

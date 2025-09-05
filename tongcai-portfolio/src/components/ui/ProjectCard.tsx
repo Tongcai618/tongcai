@@ -1,6 +1,7 @@
 import type { ReactNode, CSSProperties } from "react";
 import { colors } from "../../styles/colors";
 import { fontFamily } from "../../styles/fonts";
+import Tag from "./Tag";
 
 interface ProjectCardProps {
     title: string;
@@ -39,9 +40,7 @@ export default function ProjectCard({
                 {techStack && (
                     <ul style={styles.techStack}>
                         {techStack.map((tech) => (
-                            <li key={tech} style={styles.techItem}>
-                                {tech}
-                            </li>
+                            <Tag label={tech} size="sm" variant="soft" asButton />
                         ))}
                     </ul>
                 )}

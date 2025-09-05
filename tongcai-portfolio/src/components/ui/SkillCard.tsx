@@ -1,6 +1,7 @@
 // components/ui/SkillCard.tsx
 import type { CSSProperties } from "react";
 import { colors } from "../../styles/colors";
+import Tag from "./Tag";
 
 interface SkillCardProps {
     category: string;
@@ -12,10 +13,9 @@ export default function SkillCard({ category, skills }: SkillCardProps) {
         <div style={styles.card}>
             <h4 style={styles.title}>{category}</h4>
             <ul style={styles.skillList}>
+
                 {skills.map((skill) => (
-                    <li key={skill} style={styles.skillItem}>
-                        {skill}
-                    </li>
+                    <Tag label={skill} size="md" variant="soft" asButton />
                 ))}
             </ul>
         </div>
