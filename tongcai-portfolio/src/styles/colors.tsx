@@ -1,8 +1,8 @@
 // styles/colors.ts
 export const colors = {
-    bg: "#ffffff",
-    surface: "#f1f3f5",
-    border: "#dee2e6",
+    bg: "#FFFCF7",
+    surface: "#F4F1EC",
+    border: "#E6E0D8",
     text: "#212529",
     textSecondary: "#495057",
     muted: "#6c757d",

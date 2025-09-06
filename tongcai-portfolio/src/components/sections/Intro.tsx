@@ -6,7 +6,7 @@ export default function Intro() {
     return (
         <Section id="intro">
             <div style={styles.container}>
-                <h1 style={styles.name}>Tong Cai</h1>
+                <h1 style={styles.name}>Hi, I am Tong Cai</h1>
                 <p style={styles.title}>Full Stack Engineer | Cloud Engineer</p>
                 <p style={styles.description}>
                     Passionate about building scalable systems, designing new architectures, and mentoring engineering teams.
